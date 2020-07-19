@@ -1,0 +1,18 @@
+.header-container {
+  display: flex;
+  justify-content: space-around;
+  background-color: #6bbddd;
+}
+
+.App-logo {
+  height: 15vmin;
+  pointer-events: none;
+  padding: 5px;
+}
+
+.nav-bar-container {
+  width: 40vw;
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+}
