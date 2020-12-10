@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, makeStyles } from '@material-ui/core';
-import bg from './image_1.jpg';
+import bg from '../../images/image_1.jpg';
 
 const useStyles = makeStyles({
   root: {

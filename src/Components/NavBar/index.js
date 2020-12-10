@@ -16,8 +16,8 @@ import {
   useScrollTrigger,
   Slide,
 } from '@material-ui/core';
-import { bottomNavStyles, bottomNavActStyles } from './MaterialUIStyles';
-import logo from '../../bitmap.png';
+// import { bottomNavStyles, bottomNavActStyles } from './MaterialUIStyles';
+import logo from '../../images/logo.png';
 import './style.css';
 import clsx from 'clsx';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
@@ -94,8 +94,8 @@ const NavBar = props => {
     </div>
   );
 
-  bottomNavStyles();
-  bottomNavActStyles();
+  // bottomNavStyles();
+  // bottomNavActStyles();
 
   return (
     <React.Fragment>
