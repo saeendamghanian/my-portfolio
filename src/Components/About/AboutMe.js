@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Card, CardActions, CardContent, CardMedia, Button, Typography, Container, Box } from '@material-ui/core';
+import { Card, CardActions, CardContent, CardMedia, Button, Typography, Box } from '@material-ui/core';
 import bg from '../../images/image_1.jpg';
 
 const useStyles = makeStyles(theme => ({
