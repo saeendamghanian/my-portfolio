@@ -69,9 +69,6 @@ const useStyles = makeStyles(theme => ({
 			transform: 'translateX(-50%)',
 		},
 	},
-	paper: {
-		paddingBottom: 50,
-	},
 	list: {
 		marginBottom: '2rem',
 		[theme.breakpoints.up('sm')]: {
@@ -118,11 +115,11 @@ export default function Testimonial() {
 	const classes = useStyles();
 
 	return (
-		<Container className={classes.container} component='section' maxWidth='md'>
+		<Container className={classes.container} component='section' maxWidth='lg'>
 			<Typography className={classes.titleTypo} gutterBottom variant='h4' component='h2'>
 				Client <strong>Testimonial</strong>
 			</Typography>
-			<Paper square className={classes.paper}>
+			<Paper square>
 				<List className={classes.list}>
 					{messages.map(({ id, primary, secondary, person }) => (
 						<React.Fragment key={id}>
