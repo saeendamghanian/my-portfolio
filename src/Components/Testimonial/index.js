@@ -1,6 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { Avatar, Container, List, ListItem, ListItemAvatar, ListItemText, Paper, Typography } from '@material-ui/core';
+import { Avatar, List, ListItem, ListItemAvatar, ListItemText, makeStyles, Paper } from '@material-ui/core';
 
 const messages = [
 	{
@@ -52,23 +51,6 @@ const messages = [
 ];
 
 const useStyles = makeStyles(theme => ({
-	container: {
-		paddingBlock: '5rem',
-	},
-	titleTypo: {
-		position: 'relative',
-		padding: '1.5rem',
-		'&:before': {
-			position: 'absolute',
-			content: '""',
-			top: 0,
-			left: '50%',
-			width: '50px',
-			height: '2px',
-			background: 'linear-gradient( 95deg,rgb(242,113,33) 0%,rgb(233,64,87) 50%,rgb(138,35,135) 100%)',
-			transform: 'translateX(-50%)',
-		},
-	},
 	list: {
 		marginBottom: '2rem',
 		[theme.breakpoints.up('sm')]: {
@@ -115,30 +97,25 @@ export default function Testimonial() {
 	const classes = useStyles();
 
 	return (
-		<Container className={classes.container} component='section' maxWidth='lg'>
-			<Typography className={classes.titleTypo} gutterBottom variant='h4' component='h2'>
-				Client <strong>Testimonial</strong>
-			</Typography>
-			<Paper square>
-				<List className={classes.list}>
-					{messages.map(({ id, primary, secondary, person }) => (
-						<React.Fragment key={id}>
-							<ListItem className={classes.listItem} alignItems='flex-start'>
-								<ListItemAvatar className={classes.listItemAvatar}>
-									<Avatar className={classes.largeAvatar} alt='Profile Picture' src={person} />
-								</ListItemAvatar>
-								<ListItemText
-									className={classes.listItemText}
-									primary={primary}
-									primaryTypographyProps={{ gutterBottom: true, component: 'blockquote' }}
-									secondary={secondary}
-									secondaryTypographyProps={{ component: 'cite' }}
-								/>
-							</ListItem>
-						</React.Fragment>
-					))}
-				</List>
-			</Paper>
-		</Container>
+		<Paper square>
+			<List className={classes.list}>
+				{messages.map(({ id, primary, secondary, person }) => (
+					<React.Fragment key={id}>
+						<ListItem className={classes.listItem} alignItems='flex-start'>
+							<ListItemAvatar className={classes.listItemAvatar}>
+								<Avatar className={classes.largeAvatar} alt='Profile Picture' src={person} />
+							</ListItemAvatar>
+							<ListItemText
+								className={classes.listItemText}
+								primary={primary}
+								primaryTypographyProps={{ gutterBottom: true, component: 'blockquote' }}
+								secondary={secondary}
+								secondaryTypographyProps={{ component: 'cite' }}
+							/>
+						</ListItem>
+					</React.Fragment>
+				))}
+			</List>
+		</Paper>
 	);
 }

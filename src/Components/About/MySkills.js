@@ -150,14 +150,27 @@ const useStyles = makeStyles(theme => ({
 // })
 
 function getSteps() {
-	return ['Beginner', 'Intermediate', 'Professional'];
+	return [
+		{
+			id: 1,
+			step: 'Beginner',
+		},
+		{
+			id: 2,
+			step: 'Intermediate',
+		},
+		{
+			id: 3,
+			step: 'Professional',
+		},
+	];
 }
 
 function getSkills() {
 	return [
-		['HTML5', 2],
-		['CSS3', 2],
-		['JavaScript', 1],
+		{ id: 1, skill: 'HTML5', level: 2 },
+		{ id: 2, skill: 'CSS3', level: 2 },
+		{ id: 3, skilll: 'JavaScript', level: 1 },
 	];
 }
 
@@ -166,21 +179,21 @@ export default function MySkills() {
 	const steps = getSteps();
 	const skills = getSkills();
 
-	const stepsElement = steps.map(label => (
-		<Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title={label} arrow>
-			<Step key={label}>
+	const stepsElement = steps.map(({ id, step }) => (
+		<Tooltip key={id} TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title={step} arrow>
+			<Step>
 				<StepLabel /* classes={{ labelContainer: classes.labelContainer }} */ StepIconComponent={ColorlibStepIcon}></StepLabel>
 			</Step>
 		</Tooltip>
 	));
 
-	const skillsElement = skills.map(skill => (
+	const skillsElement = skills.map(({ id, skill, level }) => (
 		/* <ThemeProvider theme={theme}> */
-		<Box>
+		<Box key={id}>
 			<Typography classes={{ root: classes.stepperTypo }} variant='body2' component='h3' align='left'>
-				{skill[0]}
+				{skill}
 			</Typography>
-			<Stepper classes={{ root: classes.stepper }} activeStep={skill[1]} connector={<ColorlibConnector />}>
+			<Stepper classes={{ root: classes.stepper }} activeStep={level} connector={<ColorlibConnector />}>
 				{stepsElement}
 			</Stepper>
 		</Box>

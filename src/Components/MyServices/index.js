@@ -1,40 +1,46 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { Avatar, Box, Button, Card, CardActions, CardContent, Container, Typography } from '@material-ui/core';
+import { Avatar, Box, Button, Card, CardActions, CardContent, makeStyles, Typography } from '@material-ui/core';
 import PhoneIphoneIcon from '@material-ui/icons/PhoneIphone';
 
 const services = [
 	{
+		id: 1,
 		title: 'Lizard',
 		content: 'Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica',
 		icon: <PhoneIphoneIcon fontSize='large' />,
 	},
 	{
+		id: 2,
 		title: 'Lizard',
 		content: 'Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica',
 		icon: <PhoneIphoneIcon fontSize='large' />,
 	},
 	{
+		id: 3,
 		title: 'Lizard',
 		content: 'Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica',
 		icon: <PhoneIphoneIcon fontSize='large' />,
 	},
 	{
+		id: 4,
 		title: 'Lizard',
 		content: 'Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica',
 		icon: <PhoneIphoneIcon fontSize='large' />,
 	},
 	{
+		id: 5,
 		title: 'Lizard',
 		content: 'Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica',
 		icon: <PhoneIphoneIcon fontSize='large' />,
 	},
 	{
+		id: 6,
 		title: 'Lizard',
 		content: 'Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica',
 		icon: <PhoneIphoneIcon fontSize='large' />,
 	},
 	{
+		id: 7,
 		title: 'Lizard',
 		content: 'Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica',
 		icon: <PhoneIphoneIcon fontSize='large' />,
@@ -54,23 +60,6 @@ const useStyles = makeStyles(theme => ({
 			width: '33%',
 		},
 	},
-	container: {
-		paddingBlock: '5rem',
-	},
-	titleTypo: {
-		position: 'relative',
-		padding: '1.5rem',
-		'&:before': {
-			position: 'absolute',
-			content: '""',
-			top: 0,
-			left: '50%',
-			width: '50px',
-			height: '2px',
-			background: 'linear-gradient( 95deg,rgb(242,113,33) 0%,rgb(233,64,87) 50%,rgb(138,35,135) 100%)',
-			transform: 'translateX(-50%)',
-		},
-	},
 	box: {
 		[theme.breakpoints.up('sm')]: {
 			display: 'flex',
@@ -88,32 +77,27 @@ export default function MyServices() {
 	const classes = useStyles();
 
 	return (
-		<Container className={classes.container} component='section' maxWidth='lg'>
-			<Typography className={classes.titleTypo} variant='h4' component='h2'>
-				My <strong>Services</strong>
-			</Typography>
-			<Box className={classes.box}>
-				{services.map(({ title, content, icon }) => (
-					<Card className={classes.card} display='flex'>
-						<Avatar className={classes.largeAvatar} alt='Profile Picture'>
-							{icon}
-						</Avatar>
-						<CardContent>
-							<Typography gutterBottom variant='body2' component='h5'>
-								{title}
-							</Typography>
-							<Typography variant='body2' color='textSecondary' component='p'>
-								{content}
-							</Typography>
-						</CardContent>
-						<CardActions>
-							<Button size='small' color='primary'>
-								Learn More
-							</Button>
-						</CardActions>
-					</Card>
-				))}
-			</Box>
-		</Container>
+		<Box className={classes.box}>
+			{services.map(({ id, title, content, icon }) => (
+				<Card key={id} className={classes.card} display='flex'>
+					<Avatar className={classes.largeAvatar} alt='Profile Picture'>
+						{icon}
+					</Avatar>
+					<CardContent>
+						<Typography gutterBottom variant='body2' component='h5'>
+							{title}
+						</Typography>
+						<Typography variant='body2' color='textSecondary' component='p'>
+							{content}
+						</Typography>
+					</CardContent>
+					<CardActions>
+						<Button size='small' color='primary'>
+							Learn More
+						</Button>
+					</CardActions>
+				</Card>
+			))}
+		</Box>
 	);
 }
